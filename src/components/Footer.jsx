@@ -1,58 +1,40 @@
 import React from "react";
+import { footerText } from "../constants";
 
-const Contact = () => {
-    const contactText = [
-        {
-            link: "https://open.kakao.com/o/gM7YLzwf",
-            title: "KAKAO : webstupids",
-        },
-        {
-            link: "mailto:webstoryboy@naver.com",
-            title: "mail : webstoryboy@naver.com",
-        },
-    ];
-
+const Footer = () => {
     return (
-        <section id="contact">
-            <div className="contact__inner">
-                <h2 className="contact__title">Contact</h2>
-                <div className="contact__lines" aria-hidden="true">
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
+        <footer id="footer" role="contentinfo">
+            <div className="footer__inner">
+                <div className="footer__text">
+                    <span>webstoryboy</span>
+                    <span>© webs</span>
                 </div>
-                <div className="contact__text">
-                    <div className="text">
-                        {contactText.map((contact, key) => (
-                            <div key={key}>
-                                <a
-                                    href={contact.link}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    {contact.title}
-                                </a>
-                            </div>
-                        ))}
+                <div className="footer__info">
+                    <div className="left">
+                        <div className="title">
+                            <a href="/">sign up</a>
+                        </div>
+                        <p>회원가입을 하시면 댓글과 게시판 기능을 이용할 수 있습니다.</p>
+                    </div>
+                    <div className="right">
+                        <h3>social</h3>
+                        <ul>
+                            {footerText.map((footer, key) => (
+                                <li key={key}>
+                                    <a href={footer.link}>{footer.title}</a>
+                                    <em>{footer.desc}</em>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
-
-                <div className="contact__lines bottom" aria-hidden="true">
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
+                <div className="footer__right">
+                    © 2023 webstoryboy<br />
+                    이 사이트는 리액트를 이용하여 제작하였습니다.
                 </div>
             </div>
-        </section>
+        </footer>
     );
 };
 
-export default Contact;
+export default Footer;
